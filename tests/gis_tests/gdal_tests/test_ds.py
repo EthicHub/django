@@ -2,7 +2,7 @@ import os
 import re
 
 from django.contrib.gis.gdal import (
-    GDAL_VERSION, DataSource, Envelope, GDALException, OGRGeometry,
+    DataSource, Envelope, GDALException, OGRGeometry,
 )
 from django.contrib.gis.gdal.field import OFTInteger, OFTReal, OFTString
 from django.test import SimpleTestCase
@@ -33,7 +33,7 @@ ds_list = (
     ),
     TestDS(
         'test_vrt', ext='vrt', nfeat=3, nfld=3, geom='POINT', gtype='Point25D',
-        driver='OGR_VRT' if GDAL_VERSION >= (2, 0) else 'VRT',
+        driver='OGR_VRT',
         fields={
             'POINT_X': OFTString,
             'POINT_Y': OFTString,
